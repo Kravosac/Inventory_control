@@ -1,2 +1,6 @@
 001 cenoura 25
-002 beterraba 12
+002 ovo 10
+003 mostarda 12
+004 vagem 0
+005 papaia 16
+006 linhaça 4
