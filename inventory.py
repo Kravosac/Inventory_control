@@ -52,21 +52,21 @@ def register():
 
 def quantity():
 
-    with open(file1, 'w+', encoding='UTF-8') as file:
-        file.seek(0)
-        lst = (file.read()).split()
-        print(lst)
-        print('\n*** INPUT OR REMOVE QUANTITY ***\n')
+    lst = dic()
+    print('\n*** INPUT OR REMOVE QUANTITY ***\n')
+    prod = input('Product: ')
+    quant = int(input('Please enter the quantity (include " - " to remove): '))
+    for i in range(len(lst)):
+        if lst[i]['product'] == prod:
+            lst[i]['quantity'] += quant
+            print(f"New quantity of {lst[i]['product']} = {lst[i]['quantity']}")
 
-        prod = input('Product: ')
-        quant = int(input('Please enter the quantity (include " - " to remove): '))
+    with open(file1, 'w', encoding='UTF-8') as file:
+        file.truncate(0)
         for i in range(len(lst)):
-            if lst[i] == prod:
-                file.write(f'{lst[i]} ')
-                file.write(str(int(lst[i+1]) + int(quant)))
-                i += 1
-            else:
-                file.write(f'{lst[i]} ')
+            file.write(f"{lst[i]['code']} {lst[i]['product']} {lst[i]['quantity']}\n")
+
+    return menu()
 
 
 def content(word):
@@ -80,7 +80,7 @@ def content(word):
 
 
 def dic():
-    with open(file1, mode='r', encoding='UTF-8') as file:
+    with open(file1, mode='r+', encoding='UTF-8') as file:
         file.seek(0)
         lst = (file.read()).split()
         new_lst = []
@@ -93,7 +93,7 @@ def dic():
             value = lst[i+1]
             di.update({key: value})
             key = 'quantity'
-            value = lst[i+2]
+            value = int(lst[i+2])
             di.update({key: value})
             new_lst.append(di)
         return new_lst
