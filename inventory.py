@@ -3,7 +3,7 @@ file1 = 'inventory.txt'
 
 
 def menu():
-    print('\n*** OPTIONS MENU ***\n')
+    print('\n*** MAIN MENU ***\n')
     print('[1] - Register new product')
     print('[2] - Input or remove quantity')
     print('[3] - General report')
@@ -59,7 +59,7 @@ def quantity():
     for i in range(len(lst)):
         if lst[i]['product'] == prod:
             lst[i]['quantity'] += quant
-            print(f"New quantity of {lst[i]['product']} = {lst[i]['quantity']}")
+            print(f"\nNew quantity of {lst[i]['product']} = {lst[i]['quantity']}")
 
     with open(file1, 'w', encoding='UTF-8') as file:
         file.truncate(0)
@@ -104,8 +104,8 @@ def general_report():
     print('\n*** GENERAL REPORT ***\n')
     print('Code | Product | Quantity\n')
     for i in range(len(lst)):
-        print(f"{lst[i]['code']} | {lst[i]['product']} | {lst[i]['quantity']}")
-    input('\nPress any key for the main menu: ')
+        print(f"{lst[i]['code']} | {lst[i]['product'].upper()} | {lst[i]['quantity']}")
+    input('\nPress ENTER for the main menu: ')
     return menu()
 
 
@@ -114,14 +114,14 @@ def unavailable():
     count = 0
     print('\n*** UNAVAILABLE PRODUCTS REPORT ***\n')
     for i in range(len(lst)):
-        if lst[i]['quantity'] == '0':
-            print(f"{lst[i]['product']}\n")
+        if lst[i]['quantity'] == 0:
+            print(f"{lst[i]['product'].upper()}\n")
             count += 1
     if count == 0:
         print('No currently unavailable products')
     else:
         print(f'{count} product(s) unavailable')
-    input('\nPress any key for the main menu: ')
+    input('\nPress ENTER for the main menu: ')
     return menu()
 
 

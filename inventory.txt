@@ -1,2 +1,3 @@
-001 cenoura 35
-002 beterraba 15
+001 cenoura 25
+002 beterraba 25
+003 ovo 0
