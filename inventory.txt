@@ -1,3 +1,3 @@
-001 cenoura 25
+001 cenoura 20
 002 beterraba 25
-003 ovo 0
+025 pera 60
