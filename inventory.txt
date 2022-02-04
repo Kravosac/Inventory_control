@@ -1,3 +1,6 @@
-001 cenoura 20
-002 beterraba 25
-025 pera 60
+001 carrot 10
+002 orange 12
+003 apple 6
+004 pineapple 0
+005 juice 13
+006 strawberry 0
